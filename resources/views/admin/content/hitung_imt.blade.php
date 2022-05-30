@@ -25,15 +25,22 @@
                 </tr>
         </thead>
         <tbody>	
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="#" class="btn btn-warning">Ubahs</a> 
+            @if(isset($dataImt))
+            @foreach ($dataImt as $item)
+            <tr>
+            <td>{{ $item->nis }}</td>
+            <td>{{ $item->nama }}</td>
+            <td>{{ $item->rombel }}</td>
+            <td>{{ $item->rayon }}</td>
+            <td>{{ $item->hasil_imt }}</td>
+            
+            
+            <td><a href="#" class="btn btn-warning">Ubah</a> 
                 <a href="/edit_siswa" class="btn btn-danger">Hapus</a>
             </td>
-    
+        </tr>
+            @endforeach
+            @endif
         </tbody>
         </table>
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImtController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\SiswaController;
@@ -28,6 +29,9 @@ Route::get('/adminsiswa', function () {
 Route::get('/Xexport', 'App\Http\Controllers\xController@Xexport')->name('Xexport');
 Route::post('/Ximport', 'App\Http\Controllers\xController@Ximport')->name('Ximport');
 Route::get('/siswaX', 'App\Http\Controllers\xController@index');
+
+Route::get('/hitung_imt', [ImtController::class, 'index']);
+Route::post('/siswa_imt', [ImtController::class, 'hitung']);
 
 Route::get('/siswaXI', function () {
     return view('admin.content.dataXI');
@@ -59,9 +63,9 @@ Route::get('/tambah_sakit', function () {
     return view('admin.content.tambah_sakit');
 });
 
-Route::get('/tambah_imt', function () {
-    return view('admin.content.tambah_imt');
-});
+//Route::get('/tambah_imt', function () {
+    //return view('admin.content.tambah_imt');
+//});
 
 Route::get('/laporan', function () {
     return view('admin.content.laporan');
