@@ -70,6 +70,13 @@
               </a>
             </div>
           </li>
+          <form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
+
+            <button href="{{ route('logout') }}">
+                {{ __('Log Out') }}
+            </button>
+        </form>
         </ul>
       </nav>
 
@@ -77,7 +84,7 @@
         <div class="container justify-content-center ">
           <ul class="navbar-nav">
             <li class="nav-item ">
-              <a href="/"  class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
+              <a href="/siswa"  class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item">
               <a href="siswa_imt" class="nav-link"><i class="far ion-clipboard"></i><span>Hitung IMT</span></a>       
