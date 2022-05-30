@@ -25,7 +25,8 @@
                 </tr>
         </thead>
         <tbody>	
-            @if(isset($dataImt))
+           
+            
             @foreach ($dataImt as $item)
             <tr>
             <td>{{ $item->nis }}</td>
@@ -35,12 +36,12 @@
             <td>{{ $item->hasil_imt }}</td>
             
             
+        </tr>
             <td><a href="#" class="btn btn-warning">Ubah</a> 
                 <a href="/edit_siswa" class="btn btn-danger">Hapus</a>
             </td>
-        </tr>
             @endforeach
-            @endif
+         
         </tbody>
         </table>
             </div>

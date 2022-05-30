@@ -15,6 +15,7 @@
             <div class="card">
               <div class="col-12">
                   <div class="card-group">
+                    @if(isset($admin))
                   @foreach ($admin as $admin)
                     <div class="col-md-4 col-sm-12 mt-4">
                         <div class="card">
@@ -34,6 +35,7 @@
                         </div>
                     </div>
            @endforeach
+           @endif
                     {{-- CONTENT TIPS AND TRIKS --}}
 
 

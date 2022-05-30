@@ -70,6 +70,13 @@
               </a>
             </div>
           </li>
+          <form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
+
+            <button href="{{ route('logout') }}">
+                {{ __('Log Out') }}
+            </button>
+        </form>
         </ul>
       </nav>
 

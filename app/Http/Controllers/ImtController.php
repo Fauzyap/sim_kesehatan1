@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Imt;
+use App\Http\Controllers\Controller;
 
 class ImtController extends Controller
 {
     public function index()
     {
         $dataImt = Imt::all();
-        return view ('admin.content.hitung_imt',['dataImt'=>$dataImt]);
+        //dd($dataImt);
+        return view ('admin/content/hitung_imt' , compact('dataImt'));
     }
 
     public function hitung(Request $request)
@@ -30,17 +32,12 @@ class ImtController extends Controller
         $bb = $request->bb;
         $tinggib = $tb / 100;
         $imt = $bb / ($tinggib * $tinggib);
-        $final = '
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        $final = '<div style="backgroundcolor: #white;"
             Tinggi Badan: ' . $tb . ' Cm<br>
             Berat Badan : ' . $bb . ' Kg<br>
             BMI         : ' . number_format($imt, 1) . '<br>
             Keterangan : Kurus
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-         </div>
-         ';
+         </div>';
 
         if ($imt <= 18.4) {
             $HASILIMT = "kurus";

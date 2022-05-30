@@ -20,7 +20,9 @@ use App\Http\Controllers\xController;
 Route::resource('admin', ReadingController::class);
 Route::resource('siswa', SiswaController::class);
 
-
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/adminsiswa', function () {
     return view('admin.content.view');
@@ -51,9 +53,7 @@ Route::get('/input_sakit', function () {
     return view('admin.content.input_sakit');
 });
 
-Route::get('/hitung_imt', function () {
-    return view('admin.content.hitung_imt');
-});
+
 
 Route::get('/edit_sakit', function () {
     return view('admin.content.edit_sakit');
@@ -75,3 +75,15 @@ Route::get('/siswa_imt', function () {
     return view('siswa.content.tambah_imt');
 });
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::get('redirects','App\Http\Controllers\HomeController@index');

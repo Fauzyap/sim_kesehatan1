@@ -1,10 +1,5 @@
-@section('container')
-@if (Session::get('success'))
-    <div>
-        {!!Session::get('success') !!}
-    </div>
-    @endif
 @extends('templates/siswa_temp')
+@section('container')
 
 
 <div class="main-content">
@@ -20,6 +15,12 @@
                         <div class="card-body">
 							<form action="{{ url('siswa_imt') }}" method="post">
                                 @csrf
+                                @if (Session::get('success'))
+    <div>
+        {!!Session::get('success') !!}
+    </div>
+    @endif
+
                                      <div class="form-group">
                                         <label>NIS</label>
                                         <input type="text" name="nis"  class="form-control text-dark" value="">
