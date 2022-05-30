@@ -9,12 +9,12 @@
 </head>
 <div class="card">
   <div class="card-header">
-    <h5 class="card-title">Informasi Ku</h5>
+    <h5 class="card-title">Laman Tips dan Trik Kesehatan</h5>
   </div>
   <div class="card-body">
     <div class="row">
     @if($siswa->gambar)
-                                      <img src="/post-images/{{$siswa->gambar}}" width="200px" height="200">
+                                      <img src="/post-images/{{$siswa->gambar}}" width="500px" height="300px">
                                     @else
                                       <p>Tidak Ada Photo</p>
                                     @endif

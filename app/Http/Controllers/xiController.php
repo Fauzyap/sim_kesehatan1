@@ -20,8 +20,8 @@ class xiController extends Controller
      */
     public function index()
     {
-        $kelasXI=XI::all();        
-        return view('admin/content/dataXI' , compact('kelasXI'));
+        $siswaXI=XI::all();        
+        return view('siswaXI.index' , compact('siswaXI'));
     }
 
     public function Xiexport(){
@@ -93,9 +93,9 @@ class xiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(XI $siswaXI)
     {
-        //
+        return view('siswaXI.edit',compact('siswaXI'));
     }
 
     /**
@@ -105,9 +105,20 @@ class xiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, XI $siswaXI)
     {
-        //
+        $request->validate([
+            'nis' => 'required',
+            'nama' => 'required',
+            'JK' => 'required',
+            'rombel' => 'required',
+            'rayon' => 'required',
+        ]);
+  
+        $siswaXI->update($request->all());
+  
+        return redirect()->route('siswaXI.index')
+                        ->with('success','Berhasil Update !');
     }
 
     /**
@@ -116,8 +127,13 @@ class xiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nis)
     {
-        //
+        $siswaXI=XI::where('nis',$nis)->first();
+        $siswaXI->delete();
+
+        return redirect()->route('siswaXI.index')
+        ->with('success','Berhasil Hapus !');
+        
     }
 }

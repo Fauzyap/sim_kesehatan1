@@ -47,23 +47,26 @@
 			</tr>
 	</thead>
 	<tbody>	
-		@foreach ($kelasXII as $cls)
+		@foreach ($siswaXII as $cls)
 		<tr>
                           <td>{{$cls->nis}}</td>
                           <td>{{$cls->nama}}</td>
                           <td>{{$cls->JK}}</td>
 						  <td>{{$cls->rombel}}</td>
 						  <td>{{$cls->rayon}}</td>
-		<td><a href="#" class="btn btn-danger">Hapus</a> 
-			<a href="/edit_siswa" class="btn btn-info">Edit</a>
+		<td> 
+		<a class="btn btn-primary" href="{{ route('siswaXII.edit',$cls->nis) }}">Edit</a>
+		<a class="btn btn-danger" href="{{ url('siswaXII/hapus',$cls->nis) }}">Delete</a>
+     
+		
 		</td>
 	</tr>
 	@endforeach
 	</tbody>
 	</table>
+ 
 
 
-	
 
     </div>
   

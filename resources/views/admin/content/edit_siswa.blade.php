@@ -22,6 +22,10 @@
 									<input type="text" name="nama"  class="form-control text-dark" value="">
 								</div>
 								<div class="form-group">
+									<label>JK</label>
+									<input type="text" name="jk"   class="form-control text-dark" value="">
+								</div>
+								<div class="form-group">
 									<label>Rombel</label>
 									<input type="text" name="rombel"   class="form-control text-dark" value="">
 								</div>

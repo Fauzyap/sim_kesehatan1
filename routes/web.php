@@ -6,6 +6,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\xController;
 use App\Http\Controllers\xiController;
 use App\Http\Controllers\xiiController;
+use App\Http\Controllers\UksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,23 +21,30 @@ use App\Http\Controllers\xiiController;
 
 Route::resource('admin', ReadingController::class);
 Route::resource('siswa', SiswaController::class);
-
+Route::resource('siswaX', xController::class);
+Route::resource('siswaXI', xiController::class);
+Route::resource('siswaXII', xiiController::class);
+Route::resource('tambah_sakit', UksController::class);
 
 
 Route::get('/adminsiswa', function () {
     return view('admin.content.view');
 });
-
+//Route::get('/siswaX', [xController::class, 'index']);
 Route::get('/Xexport', 'App\Http\Controllers\xController@Xexport')->name('Xexport');
 Route::get('/Xiexport', 'App\Http\Controllers\xiController@Xiexport')->name('Xiexport');
-Route::get('/Xiiexport', 'App\Http\Controllers\xiiController@Xexport')->name('Xiiexport');
+Route::get('/XiiExport', 'App\Http\Controllers\xiiController@XiiExport')->name('XiiExport');
 Route::post('/Ximport', 'App\Http\Controllers\xController@Ximport')->name('Ximport');
 Route::post('/XiImport', 'App\Http\Controllers\xiController@XiImport')->name('XiImport');
 Route::post('/XiiImport', 'App\Http\Controllers\xiiController@XiiImport')->name('XiiImport');
-Route::get('/siswaX', 'App\Http\Controllers\xController@index');
-Route::post('/siswaX', 'App\Http\Controllers\xController@destroy');
-Route::get('/siswaXI', 'App\Http\Controllers\xiController@index');
-Route::get('/siswaXII', 'App\Http\Controllers\xiiController@index');
+//Route::get('/siswaX', 'App\Http\Controllers\xController@index');
+//Route::get('/siswaX', 'App\Http\Controllers\xController@destroy');
+//Route::get('/siswaX', 'App\Http\Controllers\xController@index');
+//Route::get('/siswaXI', 'App\Http\Controllers\xiController@index');
+//Route::get('/siswaXII', 'App\Http\Controllers\xiiController@index');
+Route::get('siswaX/hapus/{nis}', 'App\Http\Controllers\xController@destroy');
+Route::get('siswaXI/hapus/{nis}', 'App\Http\Controllers\xiController@destroy');
+Route::get('siswaXII/hapus/{nis}', 'App\Http\Controllers\xiiController@destroy');
 
 
 Route::get('/form', function () {
@@ -59,9 +67,9 @@ Route::get('/edit_sakit', function () {
     return view('admin.content.edit_sakit');
 });
 
-Route::get('/tambah_sakit', function () {
-    return view('admin.content.tambah_sakit');
-});
+//Route::get('/tambah_sakit', function () {
+    //return view('admin.content.tambah_sakit');
+//});
 
 Route::get('/tambah_imt', function () {
     return view('admin.content.tambah_imt');

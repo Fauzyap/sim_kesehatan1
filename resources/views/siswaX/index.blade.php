@@ -22,7 +22,7 @@
     
 		</div>
         
-		<form enctype="multipart/form-data" method="post" action="{{route('XiImport')}}"  >
+		<form enctype="multipart/form-data" method="post" action="{{route('Ximport')}}"  >
 		@csrf
         <div class="section-body">
 		<input type="file" name="file" required>
@@ -31,7 +31,7 @@
 		</button>
 		</form>
 	
-		<a href="{{ route('Xiexport')}}" class="btn btn-info ml-2">Export Data</a>
+		<a href="{{ route('Xexport')}}" class="btn btn-info ml-2">Export Data</a>
 		<br>	
 		<br>
 
@@ -47,23 +47,26 @@
 			</tr>
 	</thead>
 	<tbody>	
-		@foreach ($kelasXI as $cls)
+		@foreach ($siswaX as $cls)
 		<tr>
                           <td>{{$cls->nis}}</td>
                           <td>{{$cls->nama}}</td>
                           <td>{{$cls->JK}}</td>
 						  <td>{{$cls->rombel}}</td>
 						  <td>{{$cls->rayon}}</td>
-		<td><a href="#" class="btn btn-danger">Hapus</a> 
-			<a href="/edit_siswa" class="btn btn-info">Edit</a>
+		<td> 
+		<a class="btn btn-primary" href="{{ route('siswaX.edit',$cls->nis) }}">Edit</a>
+		<a class="btn btn-danger" href="{{ url('siswaX/hapus',$cls->nis) }}">Delete</a>
+     
+		
 		</td>
 	</tr>
 	@endforeach
 	</tbody>
 	</table>
+ 
 
 
-	
 
     </div>
   

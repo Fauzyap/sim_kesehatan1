@@ -13,13 +13,21 @@
 						<div class="card">
 						<div class="card-body">	
 							<form action="" method="post">
+						
 								<div class="form-group">
-									<label>NIS</label>
-									<input type="text" name="nama"  class="form-control text-dark" value="">
+									<label>Kelas</label>
+									<select name="bulan" class="form-control" required="">
+									<option disabled="" selected="">Pilih Kelas</option>
+												
+             						<option value="X">X</option>
+									 <option value="XI">XI</option>
+									 <option value="XII">XII</option>
+</select>
+              						
 								</div>
 								<div class="form-group">
 									<label>Nama</label>
-									<input type="text" name="nama"  class="form-control text-dark" value="">
+									<input type="text" name="nama"   class="form-control text-dark" value="">
 								</div>
 								<div class="form-group">
 									<label>Rombel</label>
@@ -36,6 +44,14 @@
                                 <div class="form-group">
 									<label>Pukul</label>
 									<input type="time" name="pukul"   class="form-control text-dark" value="">
+								</div>
+								<div class="form-group">
+									<label>Suhu Tubuh</label>
+									<input type="text" name="suhu tubuh"   class="form-control text-dark" value="">
+								</div>
+								<div class="form-group">
+									<label>Tensi</label>
+									<input type="text" name="tensi"   class="form-control text-dark" value="">
 								</div>
                                 <div class="form-group">
 									<label>Diagnosa</label>

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\X;
+use App\Models\XI;
+use App\Models\XII;
+use App\Models\InputS;
 use Illuminate\Http\Request;
 
 class UksController extends Controller
@@ -13,7 +17,14 @@ class UksController extends Controller
      */
     public function index()
     {
-        //
+        $kelasX=X::all();        
+        return view('admin/content/tambah_sakit' , compact('kelasX'));
+
+        //$kelasXI=XI::all();        
+        //return view('admin/content/tambah_sakit' , compact('kelasXI'));
+
+        //$kelasXII=XII::all();        
+        //return view('admin/content/tambah_sakit' , compact('kelasXII'));
     }
 
     /**

@@ -5,7 +5,7 @@ namespace App\Exports;
 use App\Models\XII;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class XiExport implements FromCollection
+class XiiExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection

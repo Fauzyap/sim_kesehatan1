@@ -23,10 +23,12 @@
 											<th>No.</th>
 											<th>NIS</th>
 											<th>Nama</th>
+											<th>JK</th>
 											<th>Rombel</th>
 											<th>Rayon</th>
 											<th>Tanggal</th>
 											<th>Pukul</th>
+											<th>Suhu Tubuh</th>
 											<th>Diagnosa</th>
 											<th>Keterangan</th>
 											<th>Aksi</th>
@@ -34,6 +36,8 @@
 									</thead>
 									<tbody>	
 										<tr>
+											<td></td>
+											<td></td>
 											<td></td>
 											<td></td>
 											<td></td>
