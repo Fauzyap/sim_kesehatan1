@@ -47,22 +47,18 @@
 			</tr>
 	</thead>
 	<tbody>	
-		@foreach ($kelasX as $cls)
+		@foreach ($kelasX as $data)
 		<tr>
-                          <td>{{$cls->nis}}</td>
-                          <td>{{$cls->nama}}</td>
-                          <td>{{$cls->JK}}</td>
-						  <td>{{$cls->rombel}}</td>
-						  <td>{{$cls->rayon}}</td>
+                          <td>{{$data->nis}}</td>
+                          <td>{{$data->nama}}</td>
+                          <td>{{$data->JK}}</td>
+						  <td>{{$data->rombel}}</td>
+						  <td>{{$data->rayon}}</td>
 		<td> 
 
-		<a href="/edit_siswa" class="btn btn-info">Edit</a>
-		<form action="siswaX/{{$cls->nis}}" method="post" class="d-inline">
-                              @method('delete')
-                              @csrf
-                            
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                          </form>
+		
+		{{-- <a class="btn btn-primary" href="{{ route('admin.content.',$data->nis) }}">Edit</a> --}}
+		<a class="btn btn-danger" href="{{ url('siswaX/hapus',$data->nis) }}">Delete</a>
 		
 		</td>
 	</tr>

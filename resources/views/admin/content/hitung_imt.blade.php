@@ -9,7 +9,7 @@
 		</div>
 
         <div class="section-body">
-            <a href="/tambah_imt" class="btn btn-info ml-2">Tambah Data</a>
+            {{-- <a href="/tambah_imt" class="btn btn-info ml-2">Tambah Data</a> --}}
             <br>	
             <br>
     
@@ -21,7 +21,7 @@
                     <th>Rombel</th>
                     <th>Rayon</th>
                     <th>Hasil IMT</th>
-                    <th>Aksi</th>
+                    
                 </tr>
         </thead>
         <tbody>	
@@ -37,9 +37,7 @@
             
             
         </tr>
-            <td><a href="#" class="btn btn-warning">Ubah</a> 
-                <a href="/edit_siswa" class="btn btn-danger">Hapus</a>
-            </td>
+            
             @endforeach
          
         </tbody>

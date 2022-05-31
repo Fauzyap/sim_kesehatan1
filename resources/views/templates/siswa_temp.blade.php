@@ -60,7 +60,7 @@
         </form>
         <ul class="navbar-nav navbar-right">
           
-          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+          {{-- <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="{!! asset('/dist/img/avatar/avatar-1.png') !!}" width="20" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block"></div></a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -69,7 +69,7 @@
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
-          </li>
+          </li> --}}
           <form method="POST" action="{{ route('logout') }}" x-data>
             @csrf
 
@@ -89,9 +89,9 @@
             <li class="nav-item">
               <a href="siswa_imt" class="nav-link"><i class="far ion-clipboard"></i><span>Hitung IMT</span></a>       
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="#" class="nav-link"><i class="far ion-clipboard"></i><span>Grafik IMT</span></a>       
-            </li>
+            </li> --}}
           </ul>
         </div>
       </nav>

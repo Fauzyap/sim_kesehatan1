@@ -46,12 +46,7 @@ Route::post('/siswa_imt', [ImtController::class, 'hitung']);
 
 
 
-Route::get('/siswaXI', function () {
-    return view('admin.content.dataXI');
-});
-Route::get('/siswaXII', function () {
-    return view('admin.content.dataXII');
-});
+
 
 Route::get('/form', function () {
     return view('admin.content.form');
@@ -65,8 +60,8 @@ Route::get('/input_sakit', function () {
     return view('admin.content.input_sakit');
 });
 
-
-
+Route::get('siswaX/hapus/{nis}', 'App\Http\Controllers\xController@destroy');
+Route::get('sakit/hapus/{nis}', 'App\Http\Controllers\UksController@destroy');
 Route::get('/edit_sakit', function () {
     return view('admin.content.edit_sakit');
 });
@@ -76,7 +71,7 @@ Route::get('/tambah_sakit', function () {
 });
 
 //Route::get('/tambah_imt', function () {
-    //return view('admin.content.tambah_imt');
+//return view('admin.content.tambah_imt');
 //});
 
 Route::get('/laporan', function () {
@@ -98,4 +93,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('redirects','App\Http\Controllers\HomeController@index');
+Route::get('redirects', 'App\Http\Controllers\HomeController@index');
