@@ -95,9 +95,12 @@
             <li class="nav-item">
               <a href="hitung_imt" class="nav-link"><i class="far ion-clipboard"></i><span>Hitung IMT</span></a>       
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="#" class="nav-link"><i class="far ion-clipboard"></i><span>Grafik IMT</span></a>       
             </li>
+            <li class="nav-item">
+              <a href="/register" class="nav-link"><i class="far ion-clipboard"></i><span>Register</span></a>       
+            </li> --}}
           </ul>
         </div>
       </nav>

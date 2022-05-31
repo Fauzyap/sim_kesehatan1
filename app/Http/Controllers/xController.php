@@ -121,11 +121,14 @@ class xController extends Controller
      * @return \Illuminate\Http\Response
      */
   
-    public function destroy(X $kelasX)
+    public function destroy($nis)
     {
+        
+        $kelasX=X::where('nis',$nis)->first();
         $kelasX->delete();
 
-        return redirect()->route('admin.index')
-                        ->with('success', 'berhasil hapus!');
+        return redirect()->route('siswaX')
+            ->with('success', 'Berhasil Hapus !');
+
     }
 }
