@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\Models\X;
+use App\Models\dataSiswa;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class XExport implements FromCollection
+class Xexport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return X::all();
+        return dataSiswa::all();
     }
 }

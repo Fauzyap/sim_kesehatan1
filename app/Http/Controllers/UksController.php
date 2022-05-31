@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\X;
-use App\Models\XI;
-use App\Models\XII;
+use App\Models\dataSiswa;
 use App\Models\InputS;
 use Illuminate\Http\Request;
 
@@ -17,14 +15,11 @@ class UksController extends Controller
      */
     public function index()
     {
-        $kelasX=X::all();        
-        return view('admin/content/tambah_sakit' , compact('kelasX'));
+        
+        $sakit=InputS::all();        
+        return view('sakit.index' , compact('sakit'));
 
-        //$kelasXI=XI::all();        
-        //return view('admin/content/tambah_sakit' , compact('kelasXI'));
-
-        //$kelasXII=XII::all();        
-        //return view('admin/content/tambah_sakit' , compact('kelasXII'));
+       
     }
 
     /**
@@ -34,7 +29,9 @@ class UksController extends Controller
      */
     public function create()
     {
-        //
+       
+        $dataSiswa = dataSiswa::all();
+        return view('sakit.create',compact('dataSiswa', $dataSiswa));
     }
 
     /**
@@ -45,7 +42,34 @@ class UksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        $siswa = dataSiswa::where('nis',$request->nis)->first();
+        $request->validate([
+            'nis'=>'required',
+            'tanggal'=>'required',
+            'pukul'=>'required',
+            'suhutubuh'=>'required',
+            'tensi'=>'required',
+            'diagnosa'=>'required',
+            'keterangan'=>'required'
+        ]);
+
+        InputS::create([
+            'nis'=>$siswa['nis'],
+            'nama'=>$siswa['nama'],
+            'JK'=>$siswa['JK'],
+            'rombel'=>$siswa['rombel'],
+            'rayon'=>$siswa['rayon'],
+            'tanggal'=>$request['tanggal'],
+            'pukul'=>$request['pukul'],
+            'suhutubuh'=>$request['suhutubuh'],
+            'tensi'=>$request['tensi'],
+            'diagnosa'=>$request['diagnosa'],
+            'keterangan'=>$request['keterangan'],
+        ]);
+
+        return redirect('/sakit')->with('status','Data Berhasil Ditambahkan');
+        // return $siswa;
     }
 
     /**
@@ -65,9 +89,11 @@ class UksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(InputS $sakit)
     {
-        //
+      
+        $dataSiswa = dataSiswa::all();
+        return view('sakit.edit',compact('dataSiswa','sakit'));
     }
 
     /**
@@ -77,9 +103,36 @@ class UksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, InputS $sakit)
     {
-        //
+        $siswa = dataSiswa::where('nis',$request->nis)->first();
+        $request->validate([
+            'nis'=>'required',
+            'tanggal'=>'required',
+            'pukul'=>'required',
+            'suhutubuh'=>'required',
+            'tensi'=>'required',
+            'diagnosa'=>'required',
+            'keterangan'=>'required'
+        ]);
+
+        $sakit->update([
+            'nis'=>$siswa['nis'],
+            'nama'=>$siswa['nama'],
+            'JK'=>$siswa['JK'],
+            'rombel'=>$siswa['rombel'],
+            'rayon'=>$siswa['rayon'],
+            'tanggal'=>$request['tanggal'],
+            'pukul'=>$request['pukul'],
+            'suhutubuh'=>$request['suhutubuh'],
+            'tensi'=>$request['tensi'],
+            'diagnosa'=>$request['diagnosa'],
+            'keterangan'=>$request['keterangan'],
+        ]);
+
+        return redirect('/sakit')->with('status','Data Berhasil Ditambahkan');
+        // return $siswa;
+  
     }
 
     /**
@@ -88,8 +141,12 @@ class UksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nis)
     {
-        //
+        $sakit=InputS::where('nis',$nis)->first();
+        $sakit->delete();
+
+        return redirect()->route('sakit.index')
+        ->with('success','Berhasil Hapus !');
     }
 }

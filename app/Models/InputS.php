@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class InputS extends Model
 {
     use HasFactory;
-    protected $primaryKey="nis";
-    protected $fillable=['nama', 'JK', 'rombel', 'rayon', ''];
-    protected $table='_x_i';
+   protected $primaryKey="nis";
+    protected $fillable=['nis','nama', 'JK', 'rombel', 'rayon', 'tanggal', 'pukul', 'suhutubuh', 'tensi', 'diagnosa', 'keterangan'];
+    protected $table='inputsakit';
 
 }

@@ -80,17 +80,15 @@
               <a href="/admin"  class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-              <a href="/adminsiswa" class="nav-link"><i class="far ion-person-add"></i><span>Data Siswa</span></a>
+              <a href="/siswa_data" class="nav-link"><i class="far ion-person-add"></i><span>Data Siswa</span></a>
             </li>
             <li class="nav-item">
-              <a href="/input_sakit" class="nav-link"><i class="far ion-ios-medkit-outline"></i><span>Data Siswa Sakit</span></a>
+              <a href="/sakit" class="nav-link"><i class="far ion-ios-medkit-outline"></i><span>Data Siswa Sakit</span></a>
             </li>
             <li class="nav-item">
-              <a href="hitung_imt" class="nav-link"><i class="far ion-clipboard"></i><span>Hitung IMT</span></a>       
+              <a href="hitung_imt" class="nav-link"><i class="far ion-clipboard"></i><span>Data IMT</span></a>       
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link"><i class="far ion-clipboard"></i><span>Grafik IMT</span></a>       
-            </li>
+          
           </ul>
         </div>
       </nav>

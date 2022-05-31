@@ -18,39 +18,13 @@
 							@method('PUT')
                         
 								<div class="form-group">
-									<label>Nis</label>
-									<input type="text" name="nis"   class="form-control text-dark" value="{{$sakit->nis}}">
+								<select class="form-control" name="nis">
+									@foreach($dataSiswa as $cls)
+									<option value="{{$sakit->nis}}">{{$cls->nis}}</option>
+									@endforeach
+								</select>
 								</div>
-								<div class="form-group">
-									<label>Nama</label>
-									<input type="text" name="nama"   class="form-control text-dark" value="{{$sakit->nama}}">
-								</div>
-                                <div class="form-group">
-                                    @if($sakit->JK == "L")
-                                    <label for="jenis_kelamin">Jenis Kelamin :</label> <br>
-                                <div class="form-check form-check-inline">
-                                    <label for="jenis_kelamin">
-                                        <input type="radio" name="JK" value="L" id="jenis_kelamin" checked>Laki-Laki
-                                        <input type="radio" name="JK" value="P" id="jenis_kelamin">Perempuan
-                                    </label>
-                                    </div>
-                                    @elseif($sakit->JK == "P")
-                                    <label for="jenis_kelamin">Jenis Kelamin :</label> <br>
-                                <div class="form-check form-check-inline">
-                                    <label for="jenis_kelamin">
-                                        <input type="radio" name="JK" value="L" id="jenis_kelamin">Laki-Laki
-                                        <input type="radio" name="JK" value="P" id="jenis_kelamin" checked>Perempuan
-                                    </label>
-                                    @endif
-                            	</div>
-								<div class="form-group">
-									<label>Rombel</label>
-									<input type="text" name="rombel"   class="form-control text-dark" value="{{$sakit->rombel}}">
-								</div>
-								<div class="form-group">
-									<label>Rayon</label>
-									<input type="text" name="rayon"   class="form-control text-dark" value="{{$sakit->rayon}}">
-								</div>
+							
                                 <div class="form-group">
 									<label>Tanggal</label>
 									<input type="date" name="tanggal"   class="form-control text-dark" value="{{$sakit->tanggal}}">

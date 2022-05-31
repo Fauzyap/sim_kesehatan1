@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\X;
-use App\Exports\XExport;
-use App\Imports\XImport;
+use App\Models\dataSiswa;
+use App\Exports\Xexport;
+use App\Imports\Ximport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,12 +19,13 @@ class xController extends Controller
      */
     public function index()
     {
-        $siswaX=X::all();        
-        return view('siswaX.index' , compact('siswaX'));
+        $dataSiswa=dataSiswa::all();        
+        return view('dataSiswa.index' , compact('dataSiswa'));
+        // return "bisa";
     }
 
     public function Xexport(){
-        return Excel::download(new XExport, 'datasiswaX.xlsx');
+        return Excel::download(new Xexport, 'datasiswa.xlsx');
     }
 
 
@@ -44,16 +45,16 @@ class xController extends Controller
         $nama_file = rand().$file->getClientOriginalName();
      
         // upload ke folder file_siswa di dalam folder public
-        $file->move('DatakelasX',$nama_file);
+        $file->move('dataSiswa',$nama_file);
      
         // import data
-        Excel::import(new XImport, public_path('/DatakelasX/'.$nama_file));
+        Excel::import(new XImport, public_path('/dataSiswa/'.$nama_file));
      
         // notifikasi dengan session
         Session::flash('sukses','Data Siswa Berhasil Diimport!');
      
         // alihkan halaman kembali
-        return redirect('/siswaX');
+        return redirect('siswa_data');
 
     }
 
@@ -97,9 +98,9 @@ class xController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(X $siswaX)
+    public function edit(dataSiswa $dataSiswa)
     {
-        return view('siswaX.edit',compact('siswaX'));
+        return view('dataSiswa.edit',compact('dataSiswa'));
 
     }
 
@@ -110,7 +111,7 @@ class xController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, X $siswaX)
+    public function update(Request $request, dataSiswa $dataSiswa)
     {
         $request->validate([
             'nis' => 'required',
@@ -120,9 +121,9 @@ class xController extends Controller
             'rayon' => 'required',
         ]);
   
-        $siswaX->update($request->all());
+        $dataSiswa->update($request->all());
   
-        return redirect()->route('siswaX.index')
+        return redirect()->route('siswa_data.index')
                         ->with('success','Berhasil Update !');
     }
 
@@ -135,10 +136,10 @@ class xController extends Controller
   
     public function destroy($nis)
     {
-        $siswaX=X::where('nis',$nis)->first();
-        $siswaX->delete();
+        $dataSiswa=dataSiswa::where('nis',$nis)->first();
+        $dataSiswa->delete();
 
-        return redirect()->route('siswaX.index')
+        return redirect()->route('siswa_data.index')
         ->with('success','Berhasil Hapus !');
     }
 }

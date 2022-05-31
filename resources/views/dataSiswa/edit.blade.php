@@ -12,7 +12,7 @@
 				<div class="col-6">
 						<div class="card">
 						<div class="card-body">	
-							<form action="{{ route('dataSiswa.update',$dataSiswa->nis) }}" method="post">
+							<form action="{{ route('siswa_data.update',$dataSiswa->nis) }}" method="post">
                             @csrf
 
                             @method('PUT')

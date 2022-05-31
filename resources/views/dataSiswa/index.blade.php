@@ -10,13 +10,12 @@
 	
 	<h1>Data Seluruh Siswa </h1>
                    
-                     
                     
                 
     
 		</div>
         
-		<form enctype="multipart/form-data" method="post" action="{{route('import')}}"  >
+		<form enctype="multipart/form-data" method="post" action="{{route('Ximport')}}"  >
 		@csrf
         <div class="section-body">
 		<input type="file" name="file" required>
@@ -25,7 +24,7 @@
 		</button>
 		</form>
 	
-		<a href="{{ route('export')}}" class="btn btn-info ml-2">Export Data</a>
+		<a href="{{ route('Xexport')}}" class="btn btn-info ml-2">Export Data</a>
 		<br>	
 		<br>
 
@@ -41,16 +40,16 @@
 			</tr>
 	</thead>
 	<tbody>	
-		@foreach ($dataSiswa as $cls)
+		@foreach ($dataSiswa as $siswa)
 		<tr>
-                          <td>{{$cls->nis}}</td>
-                          <td>{{$cls->nama}}</td>
-                          <td>{{$cls->JK}}</td>
-						  <td>{{$cls->rombel}}</td>
-						  <td>{{$cls->rayon}}</td>
+                          <td>{{$siswa->nis}}</td>
+                          <td>{{$siswa->nama}}</td>
+                          <td>{{$siswa->JK}}</td>
+						  <td>{{$siswa->rombel}}</td>
+						  <td>{{$siswa->rayon}}</td>
 		<td> 
-		<a class="btn btn-primary" href="{{ route('dataSiswa.edit',$cls->nis) }}">Edit</a>
-		<a class="btn btn-danger" href="{{ url('dataSiswa/hapus',$cls->nis) }}">Delete</a>
+		<a class="btn btn-primary" href="{{ route('siswa_data.edit',$siswa->nis) }}">Edit</a>
+		<a class="btn btn-danger" href="{{ url('siswa_data/hapus',$siswa->nis) }}">Delete</a>
      
 		
 		</td>

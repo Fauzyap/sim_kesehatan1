@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Models\X;
+use App\Models\dataSiswa;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 
-class XImport implements ToModel
+class Ximport implements ToModel
 {
    
     /**
@@ -16,7 +16,7 @@ class XImport implements ToModel
     */
     public function model(array $row)
     {
-        return new X([
+        return new dataSiswa([
             'nis'=> $row[0],
             'nama'=> $row[1],
             'JK' => $row[2],
