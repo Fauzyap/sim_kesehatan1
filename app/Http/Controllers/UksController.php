@@ -69,7 +69,6 @@ class UksController extends Controller
         ]);
 
         return redirect('/sakit')->with('status','Data Berhasil Ditambahkan');
-        // return $siswa;
     }
 
     /**
