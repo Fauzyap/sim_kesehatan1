@@ -90,7 +90,7 @@ class UksController extends Controller
      */
     public function edit(InputS $sakit)
     {
-      
+        // data
         $dataSiswa = dataSiswa::all();
         return view('sakit.edit',compact('dataSiswa','sakit'));
     }
